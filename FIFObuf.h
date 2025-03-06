@@ -41,7 +41,6 @@ public:
         if (newHead == _tail) {
             return false; // Buffer overflow
         } else {
-            Serial.printf("Push data %d, head: %d, tail: %d, nextTail: %d\n", data, _head, _tail, newHead);
             _buffer[_head] = data;
             _head = newHead;
             return true;
@@ -54,7 +53,6 @@ public:
             return T(); // Buffer empty
         } else {
             T data = _buffer[_tail];
-            Serial.printf("Pop data %d, head: %d, tail: %d\n", data, _head, _tail);
             _tail = (_tail + 1) % _bufferSize;
             return data;
         }
